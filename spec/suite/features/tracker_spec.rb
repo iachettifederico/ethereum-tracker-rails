@@ -16,6 +16,17 @@ RSpec.describe "Tracking", type: :feature do
       expect(page.driver.status_code).to eql(400)
     end
 
+    it "returns an error when tracking an empty string" do
+      page.driver.post("/track", { status: { address: "invalid_address" } })
+
+      expected = {
+        "status"  => "ERR",
+        "message" => "the address is invalid",
+      }
+      expect(JSON.parse(page.body)).to eql(expected)
+      expect(page.driver.status_code).to eql(400)
+    end
+
     it "tracks an address" do
       page.driver.post("/track", { status: { address: valid_address } })
 
