@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+addresses = %w[
+  0xFF17AaDbF8aa2EBaE7C236081B0C3C04b2a4a11b
+  0xFe81e74b3a523aBE7719ca37E819bb39f5Bb600F
+  0xb0844690859786465AE92729Dd0750b9d2E2CeD9
+  0x5DAafe54985F5C1c421761590Ad1a6064Fb3C998
+  0xad83592D04d878897842eFc8421602fb90552713
+]
+
+addresses.each do |address|
+  Tracker.new.track!(address)
+end
