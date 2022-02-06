@@ -19,6 +19,28 @@ class Status < ApplicationRecord
     )
   end
 
+  def self.tracked_addresses
+    all.pluck(:address)
+  end
+
+  def self.update_tracked_addresses!
+    tracked_addresses.each do |address|
+      update_address!(address)
+    end
+  end
+
+  def self.update_address!(address)
+    updated_status = fetch_status_for!(address)
+
+    find_by(address: address).update(
+      current_balance:       updated_status.current_balance,
+      confirmed_balance:     updated_status.confirmed_balance,
+      total_ether_deposited: updated_status.total_ether_deposited,
+      total_ether_deducted:  updated_status.total_ether_deducted,
+      transaction_count:     updated_status.transaction_count
+    )
+  end
+
   private
 
   def self.fetch_status_for!(address)

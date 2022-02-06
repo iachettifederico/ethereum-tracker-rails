@@ -6,6 +6,10 @@ class Tracker
     Status.track!(address)
   end
 
+  def update!
+    Status.update_tracked_addresses!
+  end
+
   private
 
   def assert_address_present!(address)

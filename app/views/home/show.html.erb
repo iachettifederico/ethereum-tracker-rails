@@ -1,0 +1,47 @@
+<a href="/"><h1>Home</h1></a>
+
+<h3>Track an address</h3>
+
+<form action="/track" method="POST">
+  <input type="text" name="address" placeholder="Address">
+  <button type="submit">Track!</button>
+</form>
+
+<hr/>
+
+<h2>Gateway actions</h2>
+
+<form action="/update" method="POST">
+  <button type="submit">update!</button>
+</form>
+
+<h3>Deposit</h3>
+
+<form action="/deposit" method="POST">
+  <input type="text" name="address" placeholder="Address" required>
+  <input type="number" name="amount" placeholder="Amount" required>
+  <input type="checkbox" name="confirmed" checked="true">
+
+  <button type="submit">Deposit!</button>
+</form>
+
+<h3>Deduct</h3>
+
+<form action="/deduct" method="POST">
+  <input type="text" name="address" placeholder="Address" required>
+  <input type="number" name="amount" placeholder="Amount" required>
+  <input type="checkbox" name="confirmed" checked="true">
+
+  <button type="submit">Deduct!</button>
+</form>
+
+
+<hr/>
+
+<h3>Tracked Addresses</h3>
+
+<ul>
+  <% addresses.each do |address| %>
+    <li><a href="/status/<%= address %>" target="_blank"> <%= address %> </li>
+  <% end %>
+</ul>
