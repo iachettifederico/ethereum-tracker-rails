@@ -3,7 +3,7 @@
 <h3>Track an address</h3>
 
 <form action="/track" method="POST">
-  <input type="text" name="address" placeholder="Address">
+  <input type="text" name="status[address]" placeholder="Address">
   <button type="submit">Track!</button>
 </form>
 
@@ -18,9 +18,9 @@
 <h3>Deposit</h3>
 
 <form action="/deposit" method="POST">
-  <input type="text" name="address" placeholder="Address" required>
-  <input type="number" name="amount" placeholder="Amount" required>
-  <input type="checkbox" name="confirmed" checked="true">
+  <input type="text" name="deposit[address]" placeholder="Address" required>
+  <input type="number" name="deposit[amount]" placeholder="Amount" required>
+  <input type="checkbox" name="deposit[confirmed]" checked="true">
 
   <button type="submit">Deposit!</button>
 </form>
@@ -28,9 +28,9 @@
 <h3>Deduct</h3>
 
 <form action="/deduct" method="POST">
-  <input type="text" name="address" placeholder="Address" required>
-  <input type="number" name="amount" placeholder="Amount" required>
-  <input type="checkbox" name="confirmed" checked="true">
+  <input type="text" name="deduct[address]" placeholder="Address" required>
+  <input type="number" name="deduct[amount]" placeholder="Amount" required>
+  <input type="checkbox" name="deduct[confirmed]" checked="true">
 
   <button type="submit">Deduct!</button>
 </form>
